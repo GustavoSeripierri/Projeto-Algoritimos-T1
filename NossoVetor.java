@@ -32,7 +32,6 @@ public class NossoVetor {
 
 
     // Métodos de ordenação (Bubble Sort)
-    //OPERAÇÔES TROCA E COMPARAÇÂO JUNTAR
     public long bubbleSort() {
         int n = vetor.length;
         boolean trocou = true;
