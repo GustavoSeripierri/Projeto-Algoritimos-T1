@@ -51,7 +51,7 @@ public class TesteAlgoritimo {
                     break;
 
                                 case 4: // Busca Linear
-                    int valorBuscaLinear = 42; // Número fixo para a busca linear
+                    int valorBuscaLinear = 42; 
                     int resultadoBuscaLinear = nossoVetor.buscaLinear(valorBuscaLinear);
                     System.out.println("Resultado da Busca Linear: " + (resultadoBuscaLinear != -1 ? "Encontrado no índice " + resultadoBuscaLinear : "Não encontrado"));
                     System.out.println("Número de comparações: " + nossoVetor.comparacoesBusca);
@@ -62,7 +62,7 @@ public class TesteAlgoritimo {
                         System.out.println("Erro: O vetor precisa estar ordenado para realizar a Busca Binária.");
                         break;
                     }
-                    int valorBuscaBinaria = 42; // Número fixo para a busca binária
+                    int valorBuscaBinaria = 42; 
                     int resultadoBuscaBinaria = nossoVetor.buscaBinaria(valorBuscaBinaria);
                     System.out.println("Resultado da Busca Binária: " + (resultadoBuscaBinaria != -1 ? "Encontrado no índice " + resultadoBuscaBinaria : "Não encontrado"));
                     System.out.println("Número de comparações: " + nossoVetor.comparacoesBusca);

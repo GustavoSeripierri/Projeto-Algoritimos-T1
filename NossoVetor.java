@@ -5,22 +5,23 @@ public class NossoVetor {
     public long comparacoes;
     public long trocas;
     public long comparacoesBusca;
-    
 
     public NossoVetor(int tamanho) {
         vetor = new int[tamanho];
         gerarVetorAleatorio();
     }
+
     public NossoVetor(int[] vetor) {
         this.vetor = vetor;
     }
+
     public int[] getVetor() {
         return vetor;
     }
+
     public void setVetor(int[] vetor) {
         this.vetor = vetor;
     }
-
 
     // Método para gerar vetor aleatório
     private void gerarVetorAleatorio() {
@@ -29,7 +30,6 @@ public class NossoVetor {
             vetor[i] = rand.nextInt(1600000);
         }
     }
-
 
     // Métodos de ordenação (Bubble Sort)
     public long bubbleSort() {
@@ -50,7 +50,6 @@ public class NossoVetor {
         }
         return (trocas + comparacoes);
     }
-    
 
     // Métodos de ordenação (Selection Sort)
     public long selectionSort() {
@@ -73,7 +72,6 @@ public class NossoVetor {
         return (trocas + comparacoes);
     }
 
-
     // Métodos de ordenação (Insertion Sort)
     public long insertionSort() {
         int n = vetor.length;
@@ -84,7 +82,7 @@ public class NossoVetor {
                 comparacoes++;
                 if (vetor[j] > key) {
                     vetor[j + 1] = vetor[j];
-                    trocas++; 
+                    trocas++;
                     j--;
                 } else {
                     break;
@@ -94,7 +92,6 @@ public class NossoVetor {
         }
         return (trocas + comparacoes);
     }
-    
 
     // Método de busca linear
     public int buscaLinear(int chave) {
@@ -109,23 +106,25 @@ public class NossoVetor {
         return -1;
     }
 
-
     // Método de busca binária (vetor deve estar ordenado)
     public int buscaBinaria(int chave) {
+        if (vetor == null || vetor.length == 0) {
+            return -1; 
+        }
         int inicio = 0;
         int fim = vetor.length - 1;
-        comparacoesBusca = 0;
+        comparacoesBusca = 0; 
         while (inicio <= fim) {
-            int meio = (inicio + fim) / 2;
-            comparacoesBusca++;
+            int meio = inicio + (fim - inicio) / 2; 
+            comparacoesBusca++; 
             if (vetor[meio] == chave) {
-                return meio;
+                return meio; 
             } else if (chave < vetor[meio]) {
-                fim = meio - 1;
+                fim = meio - 1; 
             } else {
-                inicio = meio + 1;
-            }
+                inicio = meio + 1; 
+            } 
         }
-        return -1;
+    return -1; 
     }
 }
