@@ -6,29 +6,8 @@ public class NossoVetor {
     public long trocas;
     public long comparacoesBusca;
 
-    public NossoVetor(int tamanho) {
-        vetor = new int[tamanho];
-        gerarVetorAleatorio();
-    }
-
     public NossoVetor(int[] vetor) {
         this.vetor = vetor;
-    }
-
-    public int[] getVetor() {
-        return vetor;
-    }
-
-    public void setVetor(int[] vetor) {
-        this.vetor = vetor;
-    }
-
-    // Método para gerar vetor aleatório
-    private void gerarVetorAleatorio() {
-        Random rand = new Random();
-        for (int i = 0; i < vetor.length; i++) {
-            vetor[i] = rand.nextInt(1600000);
-        }
     }
 
     // Métodos de ordenação (Bubble Sort)
@@ -99,7 +78,6 @@ public class NossoVetor {
         for (int i = 0; i < vetor.length; i++) {
             comparacoesBusca++;
             if (vetor[i] == chave) {
-                
                 return i;
             }
         }
@@ -109,22 +87,22 @@ public class NossoVetor {
     // Método de busca binária (vetor deve estar ordenado)
     public int buscaBinaria(int chave) {
         if (vetor == null || vetor.length == 0) {
-            return -1; 
+            return -1;
         }
         int inicio = 0;
         int fim = vetor.length - 1;
-        comparacoesBusca = 0; 
+        comparacoesBusca = 0;
         while (inicio <= fim) {
-            int meio = inicio + (fim - inicio) / 2; 
-            comparacoesBusca++; 
+            int meio = inicio + (fim - inicio) / 2;
+            comparacoesBusca++;
             if (vetor[meio] == chave) {
-                return meio; 
+                return meio;
             } else if (chave < vetor[meio]) {
-                fim = meio - 1; 
+                fim = meio - 1;
             } else {
-                inicio = meio + 1; 
-            } 
+                inicio = meio + 1;
+            }
         }
-    return -1; 
+        return -1;
     }
 }
