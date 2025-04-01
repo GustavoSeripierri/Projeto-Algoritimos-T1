@@ -6,7 +6,7 @@ public class TesteAlgoritimo {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
 
-        int tamanhoVetor = 100000; 
+        int tamanhoVetor = 400000; 
 
         int[] vetorOriginal = new int[tamanhoVetor];
         for (int i = 0; i < tamanhoVetor; i++) {
