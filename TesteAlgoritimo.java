@@ -8,44 +8,70 @@ public class TesteAlgoritimo {
 
         int tamanhoVetor = 100000; 
 
+        int[] vetorOriginal = new int[tamanhoVetor];
+        for (int i = 0; i < tamanhoVetor; i++) {
+            vetorOriginal[i] = random.nextInt(100); 
+        }  
+        
+        int[] vetorAtual = vetorOriginal.clone();
+        NossoVetor nossoVetor = new NossoVetor(vetorAtual);
+        boolean vetorOrdenado = false; 
+
         while (true) {
             System.out.println("\n--- Menu ---");
-            System.out.println("1. Bubble Sort");
-            System.out.println("2. Insertion Sort");
-            System.out.println("3. Selection Sort");
-            System.out.println("4. Busca Linear");
-            System.out.println("5. Busca Binária");
-            System.out.println("6. Testes (10 execuções de cada algoritmo)");
-            System.out.println("7. Sair");
+            System.out.println("1. Ordenação: Bubble Sort");
+            System.out.println("2. Ordenação: Insertion Sort");
+            System.out.println("3. Ordenação: Selection Sort");
+            System.out.println("4. Busca: Busca Linear");
+            System.out.println("5. Busca: Busca Binária");
+            System.out.println("6. Sair");
             System.out.print("Escolha uma opção: ");
             int opcao = scanner.nextInt();
 
             switch (opcao) {
                 case 1: // Bubble Sort
-                    executarTeste("Bubble Sort", tamanhoVetor);
+                    vetorAtual = vetorOriginal.clone();
+                    nossoVetor = new NossoVetor(vetorAtual);
+                    nossoVetor.bubbleSort();
+                    vetorOrdenado = true;
+                    System.out.println("\n\nNúmero de comparações e trocas: " + nossoVetor.comparacoes + nossoVetor.trocas);
                     break;
 
                 case 2: // Insertion Sort
-                    executarTeste("Insertion Sort", tamanhoVetor);
+                    vetorAtual = vetorOriginal.clone();
+                    nossoVetor = new NossoVetor(vetorAtual);
+                    nossoVetor.insertionSort();
+                    vetorOrdenado = true;
+                    System.out.println("\n\nNúmero de comparações e trocas: " + nossoVetor.comparacoes + nossoVetor.trocas);
                     break;
 
                 case 3: // Selection Sort
-                    executarTeste("Selection Sort", tamanhoVetor);
+                    vetorAtual = vetorOriginal.clone();
+                    nossoVetor = new NossoVetor(vetorAtual);
+                    nossoVetor.selectionSort();
+                    vetorOrdenado = true;
+                    System.out.println("\n\nNúmero de comparações e trocas: " + nossoVetor.comparacoes + nossoVetor.trocas);
                     break;
 
                 case 4: // Busca Linear
-                    executarBuscaLinear(tamanhoVetor);
+                    int valorBuscaLinear = 42; // Número fixo para a busca linear
+                    int resultadoBuscaLinear = nossoVetor.buscaLinear(valorBuscaLinear);
+                    System.out.println("Resultado da Busca Linear: " + (resultadoBuscaLinear != -1 ? "Encontrado no índice " + resultadoBuscaLinear : "Não encontrado"));
+                    System.out.println("Número de comparações: " + nossoVetor.comparacoesBusca);
                     break;
                 
                 case 5: // Busca Binária
-                    executarBuscaBinaria(tamanhoVetor);
+                    if (!vetorOrdenado) {
+                        System.out.println("Erro: O vetor precisa estar ordenado para realizar a Busca Binária.");
+                        break;
+                    }
+                    int valorBuscaBinaria = 42; // Número fixo para a busca binária
+                    int resultadoBuscaBinaria = nossoVetor.buscaBinaria(valorBuscaBinaria);
+                    System.out.println("Resultado da Busca Binária: " + (resultadoBuscaBinaria != -1 ? "Encontrado no índice " + resultadoBuscaBinaria : "Não encontrado"));
+                    System.out.println("Número de comparações: " + nossoVetor.comparacoesBusca);
                     break;
 
-                case 6: // Testes de 10 execuções
-                    executarTestes(tamanhoVetor);
-                    break;
-
-                case 7: // Sair
+                case 6: // Sair
                     System.out.println("Encerrando o programa. Até breve...");
                     scanner.close();
                     return;
@@ -54,65 +80,5 @@ public class TesteAlgoritimo {
                     System.out.println("Opção inválida. Tente novamente.");
             }
         }
-    }
-
-    private static void executarTeste(String tipoOrdenacao, int tamanhoVetor) {
-        int[] vetorAtual = gerarVetorAleatorio(tamanhoVetor);
-        NossoVetor nossoVetor = new NossoVetor(vetorAtual);
-        switch (tipoOrdenacao) {
-            case "Bubble Sort":
-                nossoVetor.bubbleSort();
-                break;
-            case "Insertion Sort":
-                nossoVetor.insertionSort();
-                break;
-            case "Selection Sort":
-                nossoVetor.selectionSort();
-                break;
-        }
-        System.out.println("\nNúmero de comparações e trocas: " + (nossoVetor.comparacoes + nossoVetor.trocas));
-    }
-
-    private static void executarBuscaLinear(int tamanhoVetor) {
-        int[] vetorAtual = gerarVetorAleatorio(tamanhoVetor);
-        NossoVetor nossoVetor = new NossoVetor(vetorAtual);
-        int valorBuscaLinear = 42; 
-        int resultadoBuscaLinear = nossoVetor.buscaLinear(valorBuscaLinear);
-        System.out.println("Resultado da Busca Linear: " + (resultadoBuscaLinear != -1 ? "Encontrado no índice " + resultadoBuscaLinear : "Não encontrado"));
-        System.out.println("Número de comparações: " + nossoVetor.comparacoesBusca);
-    }
-
-    private static void executarBuscaBinaria(int tamanhoVetor) {
-        int[] vetorAtual = gerarVetorAleatorio(tamanhoVetor);
-        NossoVetor nossoVetor = new NossoVetor(vetorAtual);
-        nossoVetor.bubbleSort(); // Ordena o vetor para a busca binária
-        int valorBuscaBinaria = 42; 
-        int resultadoBuscaBinaria = nossoVetor.buscaBinaria(valorBuscaBinaria);
-        System.out.println("Resultado da Busca Binária: " + (resultadoBuscaBinaria != -1 ? "Encontrado no índice " + resultadoBuscaBinaria : "Não encontrado"));
-        System.out.println("Número de comparações: " + nossoVetor.comparacoesBusca);
-    }
-
-    private static void executarTestes(int tamanhoVetor) {
-        for (int i = 0; i < 10; i++) {
-            System.out.println("\n--- Teste " + (i + 1) + " ---");
-            executarTeste("Bubble Sort", tamanhoVetor);
-            executarTeste("Insertion Sort", tamanhoVetor);
-            executarTeste("Selection Sort", tamanhoVetor);
-            executarBuscaLinear(tamanhoVetor);
-            // Para busca binária, você deve garantir que o vetor esteja ordenado
-            int[] vetorAtual = gerarVetorAleatorio(tamanhoVetor);
-            NossoVetor nossoVetor = new NossoVetor(vetorAtual);
-            nossoVetor.bubbleSort(); // Ordena o vetor para a busca binária
-            executarBuscaBinaria(tamanhoVetor);
-        }
-    }
-
-    private static int[] gerarVetorAleatorio(int tamanho) {
-        Random random = new Random();
-        int[] vetor = new int[tamanho];
-        for (int i = 0; i < tamanho; i++) {
-            vetor[i] = random.nextInt(100); // Gera números aleatórios entre 0 e 99
-        }
-        return vetor;
     }
 }
