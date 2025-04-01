@@ -5,22 +5,23 @@ public class NossoVetor {
     public long comparacoes;
     public long trocas;
     public long comparacoesBusca;
-    
 
     public NossoVetor(int tamanho) {
         vetor = new int[tamanho];
         gerarVetorAleatorio();
     }
+
     public NossoVetor(int[] vetor) {
         this.vetor = vetor;
     }
+
     public int[] getVetor() {
         return vetor;
     }
+
     public void setVetor(int[] vetor) {
         this.vetor = vetor;
     }
-
 
     // Método para gerar vetor aleatório
     private void gerarVetorAleatorio() {
@@ -30,9 +31,8 @@ public class NossoVetor {
         }
     }
 
-
     // Métodos de ordenação (Bubble Sort)
-    //OPERAÇÔES TROCA E COMPARAÇÂO JUNTAR
+    // OPERAÇÔES TROCA E COMPARAÇÂO JUNTAR
     public long bubbleSort() {
         int n = vetor.length;
         boolean trocou = true;
@@ -51,7 +51,6 @@ public class NossoVetor {
         }
         return (trocas + comparacoes);
     }
-    
 
     // Métodos de ordenação (Selection Sort)
     public long selectionSort() {
@@ -74,7 +73,6 @@ public class NossoVetor {
         return (trocas + comparacoes);
     }
 
-
     // Métodos de ordenação (Insertion Sort)
     public long insertionSort() {
         int n = vetor.length;
@@ -85,7 +83,7 @@ public class NossoVetor {
                 comparacoes++;
                 if (vetor[j] > key) {
                     vetor[j + 1] = vetor[j];
-                    trocas++; 
+                    trocas++;
                     j--;
                 } else {
                     break;
@@ -95,7 +93,6 @@ public class NossoVetor {
         }
         return (trocas + comparacoes);
     }
-    
 
     // Método de busca linear
     public int buscaLinear(int chave) {
@@ -103,13 +100,12 @@ public class NossoVetor {
         for (int i = 0; i < vetor.length; i++) {
             comparacoesBusca++;
             if (vetor[i] == chave) {
-                
+
                 return i;
             }
         }
         return -1;
     }
-
 
     // Método de busca binária (vetor deve estar ordenado)
     public int buscaBinaria(int chave) {
