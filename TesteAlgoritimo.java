@@ -17,15 +17,6 @@ public class TesteAlgoritimo {
         NossoVetor nossoVetor = new NossoVetor(vetorAtual);
         boolean vetorOrdenado = false; 
 
-        int[] vetorOriginal = new int[tamanhoVetor];
-        for (int i = 0; i < tamanhoVetor; i++) {
-            vetorOriginal[i] = random.nextInt(100); 
-        }  
-        
-        int[] vetorAtual = vetorOriginal.clone();
-        NossoVetor nossoVetor = new NossoVetor(vetorAtual);
-        boolean vetorOrdenado = false; 
-
         while (true) {
             System.out.println("\n--- Menu ---");
             System.out.println("1. Ordenação: Bubble Sort");
