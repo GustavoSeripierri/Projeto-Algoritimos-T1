@@ -16,7 +16,6 @@ public class TesteAlgoritimo {
         int[] vetorAtual = vetorOriginal.clone();
         NossoVetor nossoVetor = new NossoVetor(vetorAtual);
         boolean vetorOrdenado = false;
-
         while (true) {
             System.out.println("\n--- Menu ---");
             System.out.println("1. Ordenação: Bubble Sort");
