@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class NossoVetor {
     private int[] vetor;
     public long comparacoes;
@@ -12,6 +10,9 @@ public class NossoVetor {
 
     // Métodos de ordenação (Bubble Sort)
     public long bubbleSort() {
+        comparacoes = 0;
+        trocas = 0;
+
         int n = vetor.length;
         boolean trocou = true;
         for (int i = 0; i < n - 1 && trocou; i++) {
@@ -27,11 +28,14 @@ public class NossoVetor {
                 }
             }
         }
-        return (trocas + comparacoes);
+        return trocas;
     }
 
     // Métodos de ordenação (Selection Sort)
     public long selectionSort() {
+        comparacoes = 0;
+        trocas = 0;
+
         int n = vetor.length;
         for (int i = 0; i < n - 1; i++) {
             int minIndex = i;
@@ -53,6 +57,9 @@ public class NossoVetor {
 
     // Métodos de ordenação (Insertion Sort)
     public long insertionSort() {
+        comparacoes = 0;
+        trocas = 0;
+
         int n = vetor.length;
         for (int i = 1; i < n; i++) {
             int key = vetor[i];

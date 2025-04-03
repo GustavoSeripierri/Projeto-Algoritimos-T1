@@ -34,8 +34,7 @@ public class TesteAlgoritimo {
                     nossoVetor = new NossoVetor(vetorAtual);
                     nossoVetor.bubbleSort();
                     vetorOrdenado = true;
-                    System.out.println(
-                            "\n\nNúmero de comparações e trocas: " + nossoVetor.comparacoes + nossoVetor.trocas);
+                    System.out.println("\n\nNúmero de comparações e trocas: " + (nossoVetor.comparacoes + nossoVetor.trocas));
                     break;
 
                 case 2: // Insertion Sort
@@ -43,8 +42,7 @@ public class TesteAlgoritimo {
                     nossoVetor = new NossoVetor(vetorAtual);
                     nossoVetor.insertionSort();
                     vetorOrdenado = true;
-                    System.out.println(
-                            "\n\nNúmero de comparações e trocas: " + nossoVetor.comparacoes + nossoVetor.trocas);
+                    System.out.println("\n\nNúmero de comparações e trocas: " + (nossoVetor.comparacoes + nossoVetor.trocas));
                     break;
 
                 case 3: // Selection Sort
@@ -52,8 +50,7 @@ public class TesteAlgoritimo {
                     nossoVetor = new NossoVetor(vetorAtual);
                     nossoVetor.selectionSort();
                     vetorOrdenado = true;
-                    System.out.println(
-                            "\n\nNúmero de comparações e trocas: " + nossoVetor.comparacoes + nossoVetor.trocas);
+                    System.out.println("\n\nNúmero de comparações e trocas: " + (nossoVetor.comparacoes + nossoVetor.trocas));
                     break;
 
                 case 4: // Busca Linear
