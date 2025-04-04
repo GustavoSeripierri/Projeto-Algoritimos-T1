@@ -23,12 +23,12 @@ public class NossoVetor {
                     int temp = vetor[j];
                     vetor[j] = vetor[j + 1];
                     vetor[j + 1] = temp;
-                    trocas++;
+                    trocas+=3;
                     trocou = true;
                 }
             }
         }
-        return trocas;
+        return (trocas + comparacoes);
     }
 
     // Métodos de ordenação (Selection Sort)
@@ -43,13 +43,14 @@ public class NossoVetor {
                 comparacoes++;
                 if (vetor[j] < vetor[minIndex]) {
                     minIndex = j;
+                    trocas++;
                 }
             }
             if (minIndex != i) {
                 int temp = vetor[i];
                 vetor[i] = vetor[minIndex];
                 vetor[minIndex] = temp;
-                trocas++;
+                trocas+=3;
             }
         }
         return (trocas + comparacoes);
@@ -74,7 +75,9 @@ public class NossoVetor {
                     break;
                 }
             }
+            comparacoes++;
             vetor[j + 1] = key;
+            trocas++;
         }
         return (trocas + comparacoes);
     }

@@ -6,7 +6,7 @@ public class TesteJava {
                 vetor[i] = (int)(Math.random() * 1000); 
             }
             NossoVetor var2 = new NossoVetor(vetor); 
-            System.out.println(var2.selectionSort());
+            System.out.println(var2.bubbleSort());
         }
     }
 }
