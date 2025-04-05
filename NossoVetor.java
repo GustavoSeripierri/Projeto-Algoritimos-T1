@@ -65,17 +65,16 @@ public class NossoVetor {
         for (int i = 1; i < n; i++) {
             int key = vetor[i];
             int j = i - 1;
-            while (j >= 0) {
+
+            while (j >= 0 && vetor[j] > key) {
                 comparacoes++;
-                if (vetor[j] > key) {
-                    vetor[j + 1] = vetor[j];
-                    trocas++;
-                    j--;
-                } else {
-                    break;
-                }
+                vetor[j + 1] = vetor[j];
+                trocas++;
+                j--;
             }
-            comparacoes++;
+            if (j >= 0) {
+                comparacoes++;
+            }
             vetor[j + 1] = key;
             trocas++;
         }
